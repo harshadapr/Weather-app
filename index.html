@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai Weather</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.weather-container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+}
+
+.location i {
+    margin-right: 10px;
+    color: #4a4a4a;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+
+.forecast .day {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.forecast .day i {
+    display: block;
+    margin: 5px auto;
+    color: gold;
+}
+
+.current-temperature {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.current-temperature i {
+    color: gold;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    flex: 1;
+    text-align: center;
+}
+
+.sun-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sunrise, .sunset {
+    display: flex;
+    align-items: center;
+}
+
+.sunrise i, .sunset i {
+    margin-right: 10px;
+}
+
+.sunrise i {
+    color: gold;
+}
+
+.sunset i {
+    color: #ff4500;
+}
+
+.graph {
+    height: 150px;
+    padding: 15px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-between; /* This will equally space out the .day items */
+    overflow: hidden; /* To ensure any extra width due to rounding is hidden */
+}
+.forecast .day{
+    padding: 6px 6px;
+}
+.forecast .day:hover {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15); /* Slightly bigger shadow on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+    </style>
+</head>
+<body>
+
+<div class="weather-container">
+    <header>
+        <div class="location">
+           
+            <i class="fas fa-map-marker-alt"></i> 
+            Mumbai,maharashtra
+           
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+    </header>
+
+    <div class="forecast">
+        <div class="day">
+            Fri
+            <i class="fas fa-sun"></i>
+            28° 19°
+        </div>
+
+        <div class="day">
+            Fri
+            <i class="fas fa-sun"></i>
+            28° 19°
+        </div>
+        <div class="day">
+            Fri
+            <i class="fas fa-sun"></i>
+            28° 19°
+        </div>
+        <div class="day">
+            Fri
+            <i class="fas fa-sun"></i>
+            28° 19°
+        </div>
+        <div class="day">
+            Fri
+            <i class="fas fa-sun"></i>
+            28° 19°
+        </div>
+        <!-- You can replicate the above div for the other days -->
+    </div>
+
+    <div class="current-temperature">
+        26°C
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <div class="graph">
+        <canvas id="temperatureGraph"></canvas>
+    </div>
+    
+
+    <div class="details">
+        <div class="detail-item">
+            <label>Pressure</label>
+            <br>
+            1013 hpa
+        </div>
+        <div class="detail-item">
+            <label>Humidity</label>
+            <br/>
+            93%
+        </div>
+    </div>
+
+    <div class="sun-details">
+        <div class="sunrise">
+            <i class="fas fa-arrow-up"></i>
+            Sunrise
+            7:22am
+        </div>
+        <div class="sunset">
+            <i class="fas fa-arrow-down"></i>
+            Sunset
+            6:12pm
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script src="index.js" defer></script>
