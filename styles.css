@@ -119,3 +119,12 @@ header {
     transform: translateY(-5px);
     /* Slight lift effect on hover */
 }
+
+.search-bar input {
+    border: 1px solid #ccc;
+    /* Color can be changed to your preference */
+    padding: 10px 10px;
+    /* Adding some padding for better visual appeal */
+    border-radius: 10px;
+    /* Optional: Giving it rounded corners */
+}
