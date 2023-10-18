@@ -4,6 +4,13 @@ let sampleData = {
 };
 
 
+// function handleLocationClick() {
+//     console.log('Hello World');
+//     const city = document.querySelector('#locationIcon').textContent.split(',')[0].trim();
+//     updateUI(city);
+// }
+
+
 let temperatureChart;
 let ctx;
 
@@ -193,4 +200,28 @@ function updateChart() {
             }
         }
     });
+}
+
+function handleLocationClick() {
+    getWeatherForCurrentLocation();
+}
+
+function getWeatherForCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            try {
+                const forecastData = await fetchForecast(lat, lon);
+                const city = forecastData.city.name;
+                updateUI(city);
+            } catch (error) {
+                console.error('Error fetching weather data: ', error);
+            }
+        }, (error) => {
+            console.error('Error getting geolocation: ', error);
+        });
+    } else {
+        console.error('Geolocation is not supported by this browser.');
+    }
 }
